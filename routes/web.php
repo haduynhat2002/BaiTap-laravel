@@ -21,3 +21,5 @@ Route::get('/data-handle/{id}/path', [\App\Http\Controllers\DatahandleController
 Route::get('/data-handle/query-string', [\App\Http\Controllers\DatahandleController::class, 'handleQueryString']);
 Route::get('/data-handle/form', [\App\Http\Controllers\DatahandleController::class, 'returnForm']);
 Route::post('/data-handle/form', [\App\Http\Controllers\DatahandleController::class, 'ProcessForm']);
+
+Route::get('/home', [\App\Http\Controllers\LayoutController::class, 'home']);
