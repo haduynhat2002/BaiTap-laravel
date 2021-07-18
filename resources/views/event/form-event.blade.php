@@ -13,6 +13,7 @@
         <!-- end: sidebar -->
         @include('Layout.header')
         @include('Layout.form')
+
 </section>
 
 <!-- Vendor -->
