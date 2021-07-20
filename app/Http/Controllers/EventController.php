@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Http\Requests\EventFormRequest;
 use Illuminate\Http\Request;
+
 
 class EventController extends Controller
 {
@@ -14,8 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $Event = Event::all();
-        return view('event.table-event', ['list'=>$Event]);
+        Event::paginate(10);
+        return view('event.table-event', ['list'=>Event::paginate(10)]);
     }
 
     /**
@@ -34,9 +36,10 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventFormRequest $request)
     {
         $event = new Event();
+        $request->validated();
         $event->eventName = $request ->get('eventName');
         $event->bandNames = $request ->get('bandNames');
         $event->startDate = $request ->get('startDate');
@@ -60,7 +63,8 @@ class EventController extends Controller
         return view('admin.events.detail', ['obj' => $obj]);
     }
 
-    public function save(Request $request, $id) {
+    public function save(EventFormRequest $request, $id) {
+        $request->validated();
         $save = Event::find($id);
         $save->update($request->all());
         $save->save();

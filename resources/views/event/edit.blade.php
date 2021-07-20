@@ -48,12 +48,24 @@
                             <h2 class="panel-title">Form Event</h2>
                         </header>
                         <div class="panel-body">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form class="form-horizontal form-bordered" action="" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="inputPlaceholder">Event Name</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->eventName}}" type="text" name="eventName" class="form-control" placeholder="Event Name" id="inputPlaceholder">
+                                        @error('eventName')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -61,6 +73,9 @@
                                     <label class="col-md-3 control-label" for="inputPlaceholder">Band Names</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->bandNames}}" type="text" name="bandNames" class="form-control" placeholder="Band Names" id="inputPlaceholder">
+                                        @error('bandNames')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -68,6 +83,9 @@
                                     <label class="col-md-3 control-label" for="inputPlaceholder">Start Time</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->startDate}}" type="date" name="startDate" class="form-control" placeholder="Start Name" id="inputPlaceholder">
+                                        @error('startDate')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -75,6 +93,9 @@
                                     <label class="col-md-3 control-label" for="inputPlaceholder">End Time</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->endDate}}" type="date" name="endDate" class="form-control" placeholder="End Time" id="inputPlaceholder">
+                                        @error('endDate')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -82,6 +103,9 @@
                                     <label class="col-md-3 control-label" for="inputPlaceholder">Portfolio</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->portfolio}}" type="type" name="portfolio" class="form-control" placeholder="Portfolio" id="inputPlaceholder">
+                                        @error('portfolio')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -89,6 +113,9 @@
                                     <label class="col-md-3 control-label" for="inputPlaceholder">Ticket Price</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->ticketPrice}}" type="type" name="ticketPrice" class="form-control" placeholder="Portfolio" id="inputPlaceholder">
+                                        @error('ticketPrice')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -96,6 +123,9 @@
                                     <label class="col-md-3 control-label" for="inputPlaceholder">Status</label>
                                     <div class="col-md-6">
                                         <input value="{{$data->status}}" type="text" name="status" class="form-control" placeholder="Status" id="inputPlaceholder">
+                                        @error('status')
+                                        <div class="text-danger">* {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">

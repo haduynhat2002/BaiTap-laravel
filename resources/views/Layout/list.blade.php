@@ -12,7 +12,6 @@
                 <li><span>Tables</span></li>
                 <li><span>Basic</span></li>
             </ol>
-
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
@@ -60,6 +59,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        @include('pagination.default', ['paginator' => $list])
                     </div>
                 </div>
             </section>

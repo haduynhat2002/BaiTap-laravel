@@ -24,7 +24,7 @@ Route::post('/data-handle/form', [\App\Http\Controllers\DatahandleController::cl
 
 Route::get('/event/form', [\App\Http\Controllers\EventController::class, 'create']);
 Route::post('/event/form', [\App\Http\Controllers\EventController::class, 'store']);
-Route::get('/event/index', [\App\Http\Controllers\EventController::class, 'index']);
+Route::get('/event/index/', [\App\Http\Controllers\EventController::class, 'index']);
 Route::get('/event/index/{id}', [\App\Http\Controllers\EventController::class, 'destroy']);
 Route::get('/event/update/{id}', [\App\Http\Controllers\EventController::class, 'update']);
 Route::post('/event/update/{id}', [\App\Http\Controllers\EventController::class, 'save']);
