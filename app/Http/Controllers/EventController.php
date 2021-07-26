@@ -16,8 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        Event::paginate(10);
-        return view('event.table-event', ['list'=>Event::paginate(10)]);
+        Event::paginate(5);
+        return view('event.list-event', ['list' => Event::paginate(5)]);
     }
 
     /**
@@ -33,20 +33,20 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(EventFormRequest $request)
     {
         $event = new Event();
         $request->validated();
-        $event->eventName = $request ->get('eventName');
-        $event->bandNames = $request ->get('bandNames');
-        $event->startDate = $request ->get('startDate');
-        $event->endDate = $request ->get('endDate');
-        $event->portfolio = $request ->get('portfolio');
-        $event->ticketPrice = $request ->get('ticketPrice');
-        $event->status = $request ->get('status');
+        $event->tenChungCu = $request->get('tenChungCu');
+        $event->diaChi = $request->get('diaChi');
+        $event->giaBan = $request->get('giaBan');
+        $event->thongTinChung = $request->get('thongTinChung');
+        $event->thongTinChiTiet = $request->get('thongTinChiTiet');
+        $event->hinhDaiDien = $request->get('hinhDaiDien');
+        $event->trangThai = $request->get('trangThai');
         $event->save();
         return redirect('event/index');
     }
@@ -54,64 +54,52 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $obj = Event::find($id);
-        return view('admin.events.detail', ['obj' => $obj]);
+        //
     }
 
-    public function save(EventFormRequest $request, $id) {
-        $request->validated();
-        $save = Event::find($id);
-        $save->update($request->all());
-        $save->save();
-        return redirect('/event/index');
+    public function save(EventFormRequest $request, $id)
+    {
+        //
     }
 
     /**
      * Show the event for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $obj = Event::find($id);
-        if ($obj == null) {
-            return view('error.404');
-        }
-        return view('admin.events.edit', ['obj' => $obj]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
-        $update = Event::find($id);
-        return view('event.edit', ['data'=>$update]);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
-        $obj = Event::find($id);
-        if ($obj == null) {
-            return view('error.404');
-        }
-        $obj->delete();
-        return redirect('/event/index');
+        //
     }
 }

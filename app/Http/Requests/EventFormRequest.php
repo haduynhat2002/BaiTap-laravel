@@ -24,31 +24,24 @@ class EventFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'eventName' => ['required', 'min:20'],
-            'bandNames' => ['required'],
-            'startDate' => ['required', 'after:today'],
-            'endDate' => ['required', 'after:startDate'],
-            'portfolio' => ['required'],
-            'ticketPrice' => ['required', 'min:1'],
-            'status' => ['required', 'min:0', 'max:3']
+            'tenChungCu' => ['required', 'min:10', 'max:50'],
+            'diaChi' => ['required'],
+            'giaBan' => ['numeric'],
+            'hinhDaiDien' => ['required',],
+            'trangThai' =>  ['required', 'min:0', 'max:3']
         ];
     }
     public function messages()
     {
         return [
-            'eventName.required' => 'Vui lòng nhập tên sự kiện',
-            'eventName.min' => 'Event Name ít nhất 20 kí tự',
-            'bandNames.required' => 'Vui lòng nhập tên bản nhạc',
-            'startDate.required' => 'Vui lòng nhập ngày bắt đầu sự kiện',
-            'startDate.after' => 'Ngày bắt đầu phải sau ngày hiện tại',
-            'endDate.required' => 'Vui lòng nhập ngày kết thúc',
-            'endDate.after' => 'Ngày kết thúc phải sau ngày bắt đầu',
-            'portfolio.required' => 'Vui lòng nhập portfolio',
-            'ticketPrice.required' => 'Vui lòng nhập ticker price',
-            'ticketPrice.min' => 'Ticket price ít nhất là 1$',
-            'status.required' => 'Vui lòng nhập status',
-            'status.min' => 'Status tối thiểu là 0',
-            'status.max' => 'Status tối đa là 3'
+            'tenChungCu.required' => 'Vui lòng nhập tên chung cư',
+            'diaChi.required' => 'Vui lòng nhập địa chỉ',
+            'giaBan.numeric' => 'Giá bán phải là số',
+            'hinhDaiDien.required' => 'Hình đại diện phải là link ảnh',
+            'trangThai.required' => 'Vui lòng nhập trạng thái',
+            'trangThai.min' => 'Trạng thái tối thiểu là 0',
+            'trangThai.max' => 'Trạng thái tối thiểu là 3',
+
         ];
     }
 }

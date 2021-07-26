@@ -15,14 +15,15 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('eventName');
-            $table->string('bandNames');
-            $table->date('startDate');
-            $table->date('endDate');
-            $table->string('portfolio');
-            $table->string('ticketPrice');
-            $table->string('status');
+            $table->string('tenChungCu');
+            $table->string('diaChi');
+            $table->double('giaBan');
+            $table->string('thongTinChung');
+            $table->string('thongTinChiTiet');
+            $table->string('hinhDaiDien');
+            $table->integer('trangThai');
             $table->timestamps();
+
         });
     }
 
